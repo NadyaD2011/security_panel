@@ -9,11 +9,11 @@ load_dotenv()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': env.int('HOST'),
-        'PORT': env('PORT'),
-        'NAME': env('NAME'),
-        'USER':  env('USER'),
-        'PASSWORD':  env('PASSWORD'),
+        'HOST': env.int('DB_HOST'),
+        'PORT': env('DB_PORT'),
+        'NAME': env('DB_NAME'),
+        'USER':  env('DB_USER'),
+        'PASSWORD':  env('DB_PASSWORD'),
     }
 }
 
