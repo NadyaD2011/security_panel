@@ -8,7 +8,7 @@ from datacenter.general_functions import format_duration, get_duration, is_visit
 
 def passcard_info_view(request, passcode):
     passcard = get_list_or_404(Passcard, passcode=passcode)
-    visits = get_list_or_404(Visit, passcard=passcard)
+    visits = get_list_or_404(Visit, passcard=passcard[0])
     this_passcard_visits= []
     for visit in visits:
         this_passcard_visits.append(
@@ -19,7 +19,7 @@ def passcard_info_view(request, passcode):
             },
         )
     context = {
-        'passcard': passcard,
+        'passcard': passcard[0],
         'this_passcard_visits': this_passcard_visits
     }
     return render(request, 'passcard_info.html', context)
