@@ -7,9 +7,9 @@ from datacenter.general_functions import format_duration, get_duration, is_visit
 
 
 def passcard_info_view(request, passcode):
-    passcard = get_list_or_404(Passcard, passcode=passcode)
-    visits = get_object_or_404(Visit, passcard=passcard)
-    this_passcard_visits= []
+    passcard = get_object_or_404(Passcard, passcode=passcode)
+    visits = get_list_or_404(Visit, passcard=passcard)
+    this_passcard_visits = []
     for visit in visits:
         this_passcard_visits.append(
             {
